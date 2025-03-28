@@ -40,24 +40,21 @@ builder.Services.AddSingleton<IMongoDatabase>(sp =>
     }
 });
 
-
 builder.Services.AddIdentity<Reader, IdentityRole>(options => {
     options.Password.RequireDigit = true;
     options.Password.RequireLowercase = true;
     options.Password.RequireUppercase = true;
     options.Password.RequireNonAlphanumeric = true;
     options.Password.RequiredLength = 8;
-
 })
     .AddDefaultTokenProviders();
-    
 
 builder.Services.AddAuthentication(options => {
-    options.DefaultAuthenticateScheme = 
-    options.DefaultChallengeScheme = 
-    options.DefaultForbidScheme = 
-    options.DefaultScheme = 
-    options.DefaultSignInScheme = 
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultForbidScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultSignOutScheme = JwtBearerDefaults.AuthenticationScheme;
 }).AddJwtBearer(options => {
     options.SaveToken = true;

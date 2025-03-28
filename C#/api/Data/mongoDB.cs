@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using api.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace api.Data
 {
@@ -11,7 +12,7 @@ namespace api.Data
     {
         private readonly IMongoDatabase _database;
 
-        public MongoDB(IConfiguration configuration)
+        public MongoDB(IConfiguration configuration) : base(new DbContextOptions<IdentityDbContext<Reader>>())
         {
             var connectionString = configuration.GetSection("MongoDB:ConnectionString").Value;
             var databaseName = configuration.GetSection("MongoDB:DatabaseName").Value;
@@ -57,5 +58,4 @@ namespace api.Data
             builder.Entity<IdentityRole>().HasData(roles);
         }
     }
-    
 }

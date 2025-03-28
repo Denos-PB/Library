@@ -1,3 +1,4 @@
+// Books.cs
 using System.ComponentModel.DataAnnotations;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
@@ -44,8 +45,5 @@ namespace api.Models
 
         [BsonElement("author")]
         public virtual Author? Author { get; set; }  
-
-        
-        
     }
 }

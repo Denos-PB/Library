@@ -1,3 +1,4 @@
+// Author.cs
 using System.ComponentModel.DataAnnotations;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
@@ -14,7 +15,6 @@ namespace api.Models
         [StringLength(200)]
         [BsonElement("name")]
         public required string Name { get; set; }
-
 
         public virtual ICollection<Books> Books { get; set; }
     }

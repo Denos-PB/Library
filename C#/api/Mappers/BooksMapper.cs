@@ -34,7 +34,8 @@ namespace api.Mappers
             {
                 Title = createBooksDTO.Title,
                 Genre = createBooksDTO.Genre,
-                Count = createBooksDTO.Count
+                Count = createBooksDTO.Count,
+                AuthorName = createBooksDTO.AuthorName // Добавлена инициализация AuthorName
             };
         }
     }

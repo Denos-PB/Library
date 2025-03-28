@@ -1,3 +1,4 @@
+// ReaderService.cs
 using api.Models;
 using MongoDB.Driver;
 
@@ -11,7 +12,6 @@ namespace api.Services
         {
             _readerCollection = mongodb.GetCollection<Reader>("readers");
         }
-
 
         public async Task<List<Reader>> GetAsync()
         {
@@ -51,7 +51,6 @@ namespace api.Services
                 throw;
             }
         }
-
 
         public async Task UpdateReaderAsync(string id, Reader reader)
         {
@@ -104,6 +103,5 @@ namespace api.Services
                 throw;
             }
         }
-
     }
 }

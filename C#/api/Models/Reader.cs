@@ -1,3 +1,4 @@
+// Reader.cs
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
 using MongoDB.Bson;
@@ -22,8 +23,6 @@ namespace api.Models
         public required string Email { get; set; }
 
         [BsonElement("books")]
-
-
         public virtual required ICollection<Books> Books { get; set; }
 
         public virtual ICollection<Coment> Coments { get; set; }
